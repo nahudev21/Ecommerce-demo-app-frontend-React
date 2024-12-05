@@ -1,0 +1,19 @@
+.products_container {
+    width: 100%;
+    margin-top: 20px;
+    background: transparent;
+    border-radius: 10px;
+}
+
+.products_ul {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+}
+
+.products_li {
+    display: flex;
+    flex-direction: column;
+    width: 270px;
+    list-style: none;
+}

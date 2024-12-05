@@ -28,7 +28,6 @@ export function ProductsProvider ({ children }) {
       try {
         const res = await getAllProductsRequest();
         setProducts(res);
-        console.log(res);
       } catch (error) {
         console.log(error);
       }
