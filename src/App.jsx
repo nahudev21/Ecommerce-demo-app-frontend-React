@@ -1,35 +1,18 @@
-import { useEffect, useState } from "react"
-import { getProductByIdRequest } from "./api/product"
-import { getAllProductsRequest } from "./api/product";
+import { Routes, Route } from "react-router";
+import LandingPage from "./pages/landingPage/LandingPage"
+import HomePage from "./pages/homePage/HomePage"
+import ProductDetails from "./pages/productDetails/ProductDetails"
+import AdminPage from "./pages/adminPage/AdminPage"
 
 export default function App() {
-
-  const [ productImg, setProductImg ] = useState([])
-
-  useEffect(() => {
-    const getProduct = async () => {
-      const product = await getProductByIdRequest(5);
-      setProductImg(product)
-    };
-
-    getProduct();
-  }, []);
-
-  useEffect(() => {
-    const getAllProducts = async () => {
-      const products = await getAllProductsRequest();
-
-      console.log(products)
-    };
-
-    getAllProducts();
-  }, []);
-
   return (
-    <div>
-    
-  
-      
-    </div>
-  )
+    <>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/product-details" element={<ProductDetails />} />
+        <Route path="/admin-page" element={<AdminPage />} />
+      </Routes>
+    </>
+  );
 }
