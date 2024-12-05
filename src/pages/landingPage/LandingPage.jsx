@@ -3,7 +3,6 @@ import { FaCheck } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import iphonesImg from "../../assets/iphones.jpg"
 
-
 export default function LandingPage() {
   return (
     <div className={styles.lading_container}>
