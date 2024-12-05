@@ -30,7 +30,7 @@ export default function Navbar() {
         </div>
         <Link className={styles.link} to="/product-details">
           <div className={styles.cart_container}>
-            <input className={styles.cart_inputItems} value={1} disabled />
+            <input className={styles.cart_inputItems} value={0} disabled />
             <div className={styles.cart_iconContainer}>
               <button className={styles.cart_iconButton}>
                 <TiShoppingCart className={styles.cart_icon} />
