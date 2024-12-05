@@ -1,12 +1,16 @@
 import styles from "./CardProduct.module.css"
+import { Link } from "react-router-dom";
 
 export default function CardProduct({ product }) {
+
+  const firstPath = product.images[0]
+
   return (
     <Link to="/product-details" className={styles.card_link}>
       <div className={styles.card_container}>
         <div className={styles.card_sectionsContainer}>
           <div className={styles.card_imgContainer}>
-            <img className={styles.card_img } />
+            <img className={styles.card_img } src={firstPath} />
           </div>
           <hr />
           <div className={styles.card_info}>
