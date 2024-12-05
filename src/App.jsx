@@ -3,10 +3,12 @@ import LandingPage from "./pages/landingPage/LandingPage"
 import HomePage from "./pages/homePage/HomePage"
 import ProductDetails from "./pages/productDetails/ProductDetails"
 import AdminPage from "./pages/adminPage/AdminPage"
+import Navbar from "./components/navbar/Navbar";
 
 export default function App() {
   return (
     <>
+      <Navbar />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/home" element={<HomePage />} />
