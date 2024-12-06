@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { createContext, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   getProductByIdRequest, 
   getAllProductsRequest
@@ -20,9 +21,19 @@ export function ProductsProvider ({ children }) {
 
     const [productDetails, setProductDetails] = useState([])
 
+    const navigate = useNavigate();
+
+    console.log(productDetails);
+
     useEffect(() => {
       getProducts()
     }, [])
+
+    useEffect(() => {
+      if (productDetails.length === 0) {
+        navigate("/home"); // Aquí puedes cambiar '/' por la ruta que quieras
+      }
+    }, [productDetails]);
 
     const getProducts = async () => {
       try {
@@ -47,7 +58,8 @@ export function ProductsProvider ({ children }) {
       <ProductsContext.Provider
         value={{
           products,
-          productDetails  
+          productDetails,
+          setProductDetails  
         }}
       >
         {children}

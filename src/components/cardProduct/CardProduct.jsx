@@ -1,12 +1,19 @@
 import styles from "./CardProduct.module.css"
 import { Link } from "react-router-dom";
+import { useProducts } from "../../context/ProductsContext";
 
 export default function CardProduct({ product }) {
 
+  const { setProductDetails } = useProducts();
+
   const firstPath = product.images[0]
 
+  const handleClickProductDetails = () => {
+    setProductDetails(product);
+  };
+
   return (
-    <Link to="/product-details" className={styles.card_link}>
+    <Link to="/product-details" className={styles.card_link} onClick={handleClickProductDetails}>
       <div className={styles.card_container}>
         <div className={styles.card_sectionsContainer}>
           <div className={styles.card_imgContainer}>
