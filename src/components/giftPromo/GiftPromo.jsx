@@ -1,6 +1,6 @@
 import styles from "./GiftPromo.module.css"
-import iphoneHero from "../../assets/iphone-hero.jpg"
-import cargadorHero from "../../assets/cargador-hero.webp"
+import iphoneHero from "../../assets/iphone_hero.jpg"
+import cargadorHero from "../../assets/cargador_hero.webp"
 
 export default function GiftPromo() {
   return (

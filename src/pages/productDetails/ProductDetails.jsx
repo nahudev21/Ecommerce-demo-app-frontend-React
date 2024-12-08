@@ -1,5 +1,6 @@
 import styles from "./ProductDetails.module.css"
 import { useProducts } from "../../context/ProductsContext";
+import CarouselProductDetails from "../../components/carouselProductDetails/CarouselProductDetails";
 
 export default function ProductDetails() {
 
@@ -14,20 +15,14 @@ export default function ProductDetails() {
     return <div>Loading...</div>; // O alguna indicación de que los datos se están cargando
   }
 
-  const firstPath = productDetails.images[0];
+  const pathImages = productDetails.images;
   const formattedPrice = productDetails.price.toLocaleString("de-DE");
   const state = "nuevo";
 
   return (
     <div className={styles.productDetails_container}>
       <section className={styles.section_carousel}>
-        <div className={styles.section_carousel_imageContainer}>
-          <img className={styles.section_carouselImage} src={firstPath} />
-        </div>
-        <div>
-          <button>Anterior</button>
-          <button>Siguiente</button>
-        </div>
+        <CarouselProductDetails pathImages={pathImages} />
       </section>
       <section className={styles.section_information}>
         <span className={styles.section_informationState}>Estado {state}</span>
