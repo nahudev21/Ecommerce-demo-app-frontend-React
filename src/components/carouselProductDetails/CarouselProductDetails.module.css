@@ -1,0 +1,37 @@
+.carousel_imageContainer {
+    width: 400px;
+    height: 400px;
+    margin: auto;
+}
+
+.carouselImage {
+    width: 100%;
+    max-height: 100%;
+    /* Asegura que la imagen no sobrepase la altura del contenedor */
+    object-fit: contain;
+}
+
+.carousel_button_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel_button {
+    width: 80px;
+    height: 25px;
+    font-size: 15px;
+    font-weight: 200;
+    color: whitesmoke;
+    background: #4189e6e5;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.carousel_button:hover {
+    background: #4189e6;
+    transform: scale(105%);
+    transition: 0.5s;
+}
