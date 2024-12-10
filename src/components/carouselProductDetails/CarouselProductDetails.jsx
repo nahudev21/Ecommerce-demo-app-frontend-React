@@ -1,4 +1,6 @@
 import Styles from "./CarouselProductDetails.module.css"
+import { GoChevronLeft } from "react-icons/go";
+import { GoChevronRight } from "react-icons/go";
 import { useState } from "react"
 
 export default function CarouselProductDetails({ pathImages }) {
@@ -34,8 +36,12 @@ export default function CarouselProductDetails({ pathImages }) {
         />
       </div>
       <div className={Styles.carousel_button_container}>
-        <button className={Styles.carousel_button} onClick={previus}>Anterior</button>
-        <button className={Styles.carousel_button} onClick={next}>Siguiente</button>
+        <button className={Styles.carousel_button} onClick={previus}>
+          <GoChevronLeft className={Styles.carousel_buttonIcon} />
+        </button>
+        <button className={Styles.carousel_button} onClick={next}>
+          <GoChevronRight className={Styles.carousel_buttonIcon} />
+        </button>
       </div>
     </>
   );

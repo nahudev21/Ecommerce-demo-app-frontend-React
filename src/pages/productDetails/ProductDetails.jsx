@@ -36,6 +36,9 @@ export default function ProductDetails() {
         ) : (
           <span className={styles.section_informationStock}>Sin Stock</span>
         )}
+        <span className={styles.section_informationEnvio}>
+          Envio gratis solo dentro de San Miguel Tucumán
+        </span>
         <span className={styles.section_informationPrice}>
           ${formattedPrice}
         </span>

@@ -38,6 +38,14 @@
     margin: 5px;
 }
 
+.section_informationEnvio {
+    color: #00A650;
+    font-family: Proxima Nova, -apple-system, Roboto, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 5px;
+}
+
 .section_informationPrice {
     display: block;
     color: rgba(0, 0, 0, .9);
@@ -101,7 +109,7 @@
 
 .section_information_buyNowButton:hover {
     background: #5f65ac;
-    transform: scale(105%);
+    transform: scale(103%);
     transition: 0.5s;
 }
 
@@ -119,6 +127,6 @@
 
 .section_information_addToCartButton:hover {
     background: #4189e6e3;
-    transform: scale(105%);
+    transform: scale(103%);
     transition: 0.5s;
 }
