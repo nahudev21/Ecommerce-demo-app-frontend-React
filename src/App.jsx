@@ -5,6 +5,7 @@ import HomePage from "./pages/homePage/HomePage"
 import ProductDetails from "./pages/productDetails/ProductDetails"
 import AdminPage from "./pages/adminPage/AdminPage"
 import Navbar from "./components/navbar/Navbar";
+import RegisterPage from "./pages/registerPage/RegisterPage";
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/register" element={<RegisterPage />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/product-details" element={<ProductDetails />} />
           <Route path="/admin-page" element={<AdminPage />} />

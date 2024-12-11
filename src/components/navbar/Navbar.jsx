@@ -42,7 +42,9 @@ export default function Navbar() {
           <button className={styles.nav_button}>Inicia Sesión</button>
         </div>
         <div className={styles.nav_containerBotones}>
-          <button className={styles.nav_button}>Regístrate</button>
+          <Link to="/register">
+            <button className={styles.nav_button}>Regístrate</button>
+          </Link>
         </div>
       </section>
     </nav>
