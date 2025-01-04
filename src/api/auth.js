@@ -10,9 +10,21 @@ export const registerRequest = async (user) => {
     if (response.ok) {
       const json = await response.json();
       console.log(json)
-      return json;
-    } 
+      return { success: true, data: json }
+    } else {
+      const errorRequest = await response.json();
+
+      if(response.status === 409) {
+        return { success: false, message: "Ya existe un usuario con esa dirección email" }
+      }
+
+      return {
+        success: false,
+        message: errorRequest.message || "Error desconocido",
+      };
+    }
   } catch (error) {
-    console.log(error.message);
+    console.log("Error de red o de conexión:", error);
+    return { message: "Error de red o de conexión" };
   }
 };
