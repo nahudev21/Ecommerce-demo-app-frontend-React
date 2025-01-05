@@ -38,9 +38,11 @@ export default function Navbar() {
             </div>
           </div>
         </Link>
-        <div className={styles.nav_containerBotones}>
-          <button className={styles.nav_button}>Inicia Sesión</button>
-        </div>
+        <Link to="/auth">
+          <div className={styles.nav_containerBotones}>
+            <button className={styles.nav_button}>Inicia Sesión</button>
+          </div>
+        </Link>
         <div className={styles.nav_containerBotones}>
           <Link to="/register">
             <button className={styles.nav_button}>Regístrate</button>
