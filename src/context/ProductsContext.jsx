@@ -29,12 +29,6 @@ export function ProductsProvider ({ children }) {
       getProducts()
     }, [])
 
-    useEffect(() => {
-      if (productDetails.length === 0) {
-        navigate("/home"); // Aquí puedes cambiar '/' por la ruta que quieras
-      }
-    }, [productDetails]);
-
     const getProducts = async () => {
       try {
         const res = await getAllProductsRequest();
