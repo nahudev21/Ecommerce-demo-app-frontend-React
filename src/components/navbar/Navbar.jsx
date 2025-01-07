@@ -2,9 +2,20 @@ import styles from "./Navbar.module.css"
 import { IoMdSearch } from "react-icons/io";
 import { TiShoppingCart } from "react-icons/ti";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../redux/slices/authSlice";
+import { FaUser } from "react-icons/fa";
 
 
 export default function Navbar() {
+
+  const dispatch = useDispatch();
+  const { isAuthenticate } = useSelector((state) => state.auth);
+
+  const handleLogout = () => {
+    dispatch(logout());
+  }
+
   return (
     <nav className={styles.nav_container}>
       <section className={styles.nav_sectionBuscador}>
@@ -38,16 +49,25 @@ export default function Navbar() {
             </div>
           </div>
         </Link>
-        <Link to="/auth">
-          <div className={styles.nav_containerBotones}>
-            <button className={styles.nav_button}>Inicia Sesión</button>
-          </div>
-        </Link>
-        <div className={styles.nav_containerBotones}>
-          <Link to="/register">
-            <button className={styles.nav_button}>Regístrate</button>
+        {
+          isAuthenticate ? (<div>
+          <FaUser />
+          <p>Nahuel de la torre</p>
+          <Link>
+            <button className={styles.nav_button} onClick={handleLogout} >Cerrar Sesión</button>
           </Link>
-        </div>
+        </div>)
+        : (<><Link to="/auth">
+              <div className={styles.nav_containerBotones}>
+                <button className={styles.nav_button}>Inicia Sesión</button>
+              </div>
+            </Link>
+            <div className={styles.nav_containerBotones}>
+                <Link to="/register">
+                  <button className={styles.nav_button}>Regístrate</button>
+                </Link>
+            </div></>)
+        }
       </section>
     </nav>
   );
