@@ -20,7 +20,6 @@ const authSlice = createSlice({
             console.log(action.payload)
             state.user = action.payload.data;
             state.loading = false;
-            localStorage.setItem("token", JSON.stringify(state.user.token));
         },
         loginFailure: (state, action) => {
             state.loading = false;
@@ -29,7 +28,6 @@ const authSlice = createSlice({
         logout: (state) => {
             state.isAuthenticate = false;
             state.user = null;
-            localStorage.removeItem("token");
         }
     },
 });

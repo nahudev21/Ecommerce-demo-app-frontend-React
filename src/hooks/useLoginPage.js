@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { loginRequest } from "../api/auth"
 import { useDispatch, useSelector } from "react-redux";
-import { loginStart, loginSucces, loginFailure, logout } from "../redux/slices/authSlice";
+import { loginStart, loginSucces, loginFailure } from "../redux/slices/authSlice";
 import { useNavigate } from "react-router-dom";
 
 export default function useLoginPage(initialData, onValidate) {
