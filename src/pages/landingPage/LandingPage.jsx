@@ -1,9 +1,12 @@
 import styles from "./LandingPage.module.css"
 import { FaCheck } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import iphonesImg from "../../assets/iphones.jpg"
+import { useNavigate } from "react-router-dom";
 
 export default function LandingPage() {
+
+  const navigate = useNavigate();
+
   return (
     <div className={styles.lading_container}>
       <div className={styles.hero_container}>
@@ -20,9 +23,7 @@ export default function LandingPage() {
             del mercado.
           </p>
           <p>¡Compra ahora y lleva tu experiencia móvil al siguiente nivel!</p>
-          <Link to="/home">
-            <button className={styles.section_leftButton}>Empezar</button>
-          </Link>
+          <button className={styles.section_leftButton} onClick={() => {navigate("/home")}}>Empezar</button>
         </section>
         <section className={styles.section_right}>
           <div className={styles.section_right_containerImg}>

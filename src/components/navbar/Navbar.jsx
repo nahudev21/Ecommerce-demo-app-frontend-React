@@ -1,10 +1,10 @@
 import styles from "./Navbar.module.css"
 import { IoMdSearch } from "react-icons/io";
-import { TiShoppingCart } from "react-icons/ti";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/slices/authSlice";
 import { FaUser } from "react-icons/fa";
+import { CiShoppingCart } from "react-icons/ci";
 
 
 export default function Navbar() {
@@ -13,62 +13,63 @@ export default function Navbar() {
   const { isAuthenticate } = useSelector((state) => state.auth);
 
   const handleLogout = () => {
-    dispatch(logout());
+    const confirm = window.confirm("¿Desea cerrar Sesión?");
+    
+    if(confirm) {
+      dispatch(logout()); 
+    }
   }
 
   return (
     <nav className={styles.nav_container}>
-      <section className={styles.nav_sectionBuscador}>
-        <div className={styles.nav_logoContainer}>
-          <Link className={styles.link} to="/">
-            <span className={styles.nav_logoSpan1}>Tuch</span>
-            <span className={styles.nav_logoSpan2}>Innovations</span>
-          </Link>
-        </div>
-      </section>
-      <section className={styles.nav_sectionButton}>
-        <div className={styles.nav_containerBuscador}>
-          <form className={styles.buscador}>
-            <input
-              className={styles.buscador_input}
-              name="buscador"
-              placeholder="Buscar..."
-            />
-            <span>
-              <IoMdSearch className={styles.search_icon} />
-            </span>
-          </form>
-        </div>
-        <Link className={styles.link} to="/product-details">
-          <div className={styles.cart_container}>
-            <input className={styles.cart_inputItems} value={0} disabled />
-            <div className={styles.cart_iconContainer}>
-              <button className={styles.cart_iconButton}>
-                <TiShoppingCart className={styles.cart_icon} />
-              </button>
+      <div className={styles.nav_logo_container}>
+        <Link className={styles.link}>
+          <span className={styles.nav_logo_title}>Tuch</span>
+          <span className={styles.nav_logo_text}>Store</span>
+        </Link>
+      </div>
+      <div className={styles.nav_seeker_container}>
+        <input
+          className={styles.nav_seeker_input}
+          name="buscador"
+          placeholder="Buscar..."
+        />
+        <button className={styles.nav_seeker_button}>
+          <IoMdSearch className={styles.nav_seeker_button_icon} />
+        </button>
+      </div>
+      <div className={styles.nav_cart_container}>
+        <span>
+          <CiShoppingCart className={styles.nav_cart_icon} />
+        </span>
+        <span className={styles.nav_cart_amount}>{0}</span>
+      </div>
+      <div className={styles.nav_profile_container}>
+        {isAuthenticate ? (
+          <div className={styles.user_container}>
+              <FaUser className={styles.nav_user_icon} />
+              <p>Nahuel de la torre</p>
+              <div className={styles.nav_user_dropdown}>
+                <button className={styles.nav_button} onClick={handleLogout}>
+                  Cerrar Sesión
+                </button>
+              </div>
+          </div>
+        ) : (
+          <div className={styles.button_session_container}>
+            <div>
+              <Link to="/auth">
+                <button className={styles.nav_button}>Inicia Sesión</button>
+              </Link>
+            </div>
+            <div>
+              <Link to="/register">
+                <button className={styles.nav_button}>Regístrate</button>
+              </Link>
             </div>
           </div>
-        </Link>
-        {
-          isAuthenticate ? (<div>
-          <FaUser />
-          <p>Nahuel de la torre</p>
-          <Link>
-            <button className={styles.nav_button} onClick={handleLogout} >Cerrar Sesión</button>
-          </Link>
-        </div>)
-        : (<><Link to="/auth">
-              <div className={styles.nav_containerBotones}>
-                <button className={styles.nav_button}>Inicia Sesión</button>
-              </div>
-            </Link>
-            <div className={styles.nav_containerBotones}>
-                <Link to="/register">
-                  <button className={styles.nav_button}>Regístrate</button>
-                </Link>
-            </div></>)
-        }
-      </section>
+        )}
+      </div>
     </nav>
   );
 }
