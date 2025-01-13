@@ -64,13 +64,15 @@
 .nav_seeker_input {
     width: 350px;
     height: 35px;
+    padding-left: 10px;
+    color: #202020;
     border-radius: 5px;
     border: 2px solid #eb611f;
     background: #ffffff;
 }
 
 .nav_seeker_input::placeholder {
-    padding: 10px;
+    padding: 0;
     color: #202020;
 }
 

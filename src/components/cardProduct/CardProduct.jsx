@@ -13,14 +13,21 @@ export default function CardProduct({ product }) {
   };
 
   return (
-    <Link to="/product-details" className={styles.card_link} onClick={handleClickProductDetails}>
+    <Link
+      to="/product-details"
+      className={styles.card_link}
+      onClick={handleClickProductDetails}
+    >
       <div className={styles.card_container}>
         <div className={styles.card_sectionsContainer}>
           <div className={styles.card_imgContainer}>
-            <img className={styles.card_img } src={firstPath} />
+            <img className={styles.card_img} src={firstPath} />
           </div>
           <hr />
           <div className={styles.card_info}>
+            <span className={styles.section_informationState}>
+              Estado {"nuevo"}
+            </span>
             <div>
               <h3>{product.name}</h3>
             </div>
