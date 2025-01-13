@@ -171,7 +171,6 @@
   background-color: white;
   border: 1px solid #ddd;
   padding: 10px;
-  border-radius: 5px;
   width: 150px; /* Ancho del desplegable */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }

@@ -7,16 +7,16 @@ export default function ProductsPanel() {
   const { products } = useProducts();
 
   return (
-    <div className={styles.products_container}>
-      <ul className={styles.products_ul}>
-        {products.map((product) => {
-          return (
-            <li className={styles.products_li} key={product.id}>
-              <CardProduct product={product} />
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+        <div className={styles.products_container}>
+          <ul className={styles.products_ul}>
+            {products.map((product) => {
+              return (
+                <li className={styles.products_li} key={product.id}>
+                  <CardProduct product={product} />
+                </li>
+              );
+            })}
+          </ul>
+        </div>
   );
 }

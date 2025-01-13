@@ -23,7 +23,7 @@ export default function Navbar() {
   return (
     <nav className={styles.nav_container}>
       <div className={styles.nav_logo_container}>
-        <Link className={styles.link}>
+        <Link className={styles.link} to="/">
           <span className={styles.nav_logo_title}>Tuch</span>
           <span className={styles.nav_logo_text}>Store</span>
         </Link>
