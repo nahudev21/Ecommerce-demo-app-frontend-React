@@ -1,10 +1,10 @@
 import styles from "./ProductsPanel.module.css"
 import CardProduct from "../cardProduct/CardProduct"
-import { useProducts } from "../../context/ProductsContext";
+import { useSelector } from "react-redux";
 
 export default function ProductsPanel() {
 
-  const { products } = useProducts();
+  const products = useSelector((state) => state.products.productsCopy);
 
   return (
         <div className={styles.products_container}>

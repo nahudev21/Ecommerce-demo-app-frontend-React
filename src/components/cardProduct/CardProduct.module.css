@@ -9,6 +9,7 @@
     border-radius: 10px;
     border: 1px solid rgb(204, 204, 204);
     background: white;
+    cursor: pointer;
 }
 
 .card_container:hover {

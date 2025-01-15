@@ -15,6 +15,28 @@
     align-items: center;
 }
 
+.select_container {
+    border: 2px solid #eb611f;
+    color: #000000CC;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.select_container:focus {
+    outline: none;
+}
+
+.select_option {
+    color: #000000CC;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.select_container option:hover {
+    color: white;
+    background: #eb611f;
+}
+
 .filters_button {
     width: auto;
     height: auto;
