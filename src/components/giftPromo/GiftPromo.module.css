@@ -1,0 +1,35 @@
+.giftPromo_container {
+    width: 930px;
+    height: auto;
+    margin: auto;
+    margin-top: 30px;
+    background: white;
+    border: 2px solid #eb611f;
+    border-radius: 20px;
+}
+
+.giftPromo_container_title {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+
+.giftPromo_container_title h3 {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: #000000CC;
+}
+
+.giftPromo_container_images {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.giftPromo_container_images img {
+    width: 280px;
+    height: 280px;
+}

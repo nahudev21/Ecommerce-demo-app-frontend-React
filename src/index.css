@@ -3,3 +3,28 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+:root {
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-image: linear-gradient(90deg, #dae3de38, #dae3de77, #b3bade, #6789ba);
+    
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+    --bgAllPage: #bec3fc;
+    --bgAccentLinkPressed: #186fbe;
+    --bgAccentBrandMutedPressed: #fce6d9;
+    --bgAccentBrandAltMutedPressed: #e9eaec;
+    --bgAccentLinkMutedPressed: #dbecfe;
+    --textAccentBrand: #f7641b;
+    --textAccentPrice: #f7641b;
+    --textAccentLink: #005498;
+    --textAccentBrandAlt: #6b6d70;
+    --textAccentPremium: #813ef6;
+    --textAccentPremiumHover: #8856f5;
+    --textAccentPremiumPressed: #9067f6;
+    --textAccentBrandHover: #eb611f;
+}

@@ -1,0 +1,181 @@
+.nav_container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding: 5px;
+    background: white;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.nav_logo_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    height: 60px;
+    padding: 10px;
+    background: #ffffff;
+}
+
+.nav_seeker_container {
+    position: relative;
+    width: 45%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: white;
+}
+
+.nav_cart_container {
+    position: relative;
+    width: 10%;
+    height: 60px;
+    padding: 10px;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    background: white;
+}
+
+.nav_profile_container {
+    width: 20%;
+    height: 60px;
+    padding: 10px;
+    background: white;
+}
+
+.nav_logo_title {
+    color: #202020;
+    font-size: 23px;
+    font-weight: 500;
+}
+
+.nav_logo_text {
+    color: #eb611f;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.nav_seeker_input {
+    width: 350px;
+    height: 35px;
+    padding-left: 10px;
+    color: #202020;
+    border-radius: 5px;
+    border: 2px solid #eb611f;
+    background: #ffffff;
+}
+
+.nav_seeker_input::placeholder {
+    padding: 0;
+    color: #202020;
+}
+
+.nav_seeker_input:focus {
+    outline: none;
+    transform: scale(102%);
+    border: 3px solid #eb611f;
+}
+
+.nav_seeker_button {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 0;
+    right: 122px;
+    bottom: 0;
+    background: #eb611f;
+    padding: 10 15px;
+    font-size: 20px;
+    border-radius: 0 5px 5px 0;
+    border: 2px solid #eb611f;
+    margin: auto;
+}
+
+.nav_seeker_button:hover {
+    color: #202020;
+}
+
+.nav_seeker_button_icon {
+    margin: auto;
+}
+
+.nav_cart_icon {
+    color: #ff5100;
+    font-size: 25px;
+}
+
+.nav_cart_amount {
+   position: absolute;
+   bottom: 25px;
+   right: 13px;
+   color: #202020;
+}
+
+.nav_button {
+    width: 110px;
+    height: 28px;
+    margin: 0 5px 0 5px;
+    background: #4189e6d2;
+    color: whitesmoke;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.nav_button:hover {
+    background: #4189e6f5;
+    transform: scale(105%);
+    transition: 0.3s;
+}
+
+.user_container {
+  width: 100%;
+  height: 100%;
+  position: relative; /* Para poder posicionar el desplegable en relación al contenedor */
+  display: flex;
+  justify-content: start;
+  align-items: end;
+  cursor: pointer;
+}
+
+.button_session_container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.nav_user_icon {
+    color: #eb611f;
+    margin: 5px;
+}
+
+.user_container p {
+    font-size: 15px;
+    color: #202020;
+}
+
+.nav_user_dropdown {
+  display: none; /* Ocultamos el desplegable por defecto */
+  position: absolute;
+  top: 100%; /* Coloca el desplegable justo debajo del contenedor */
+  left: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  width: 150px; /* Ancho del desplegable */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.user_container:hover .nav_user_dropdown {
+  display: block; /* Muestra el desplegable cuando se pasa el mouse sobre el contenedor */
+}
+
