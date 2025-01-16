@@ -1,9 +1,9 @@
 .category_container {
-    width: 630px;
+    width: 45%;
     height: 80px;
     margin: auto;
     margin-top: 40px;
-    border-radius: 10px;
+    border-radius: 5px;
     background: white;
 }
 
@@ -18,7 +18,7 @@
 .filters_button {
     width: auto;
     height: auto;
-    margin: 15px;
+    margin: 10px;
     padding: 5px;
     background: transparent;
     border: none;
@@ -32,3 +32,28 @@
 .filters_button::before {
     border-bottom: 3px solid #eb611f;
 }
+
+.select_container {
+    border: 2px solid #eb611f;
+    color: #000000CC;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.select_container:focus {
+    outline: none;
+}
+
+.select_option {
+    color: #000000CC;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.select_container option:hover {
+    color: white;
+    background: #eb611f;
+}
+

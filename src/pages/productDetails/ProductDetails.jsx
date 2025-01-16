@@ -1,10 +1,13 @@
 import styles from "./ProductDetails.module.css"
-import { useProducts } from "../../context/ProductsContext";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import CarouselProductDetails from "../../components/carouselProductDetails/CarouselProductDetails";
 
 export default function ProductDetails() {
 
-  const { productDetails } = useProducts();
+  const products = useSelector((state) => state.products.allProducts);
+  const { id } = useParams();
+  const productDetails = products.find((product) => product.id === parseInt(id));
 
   // Verifica si productDetails existe y si tiene las propiedades necesarias
   if (
@@ -17,7 +20,7 @@ export default function ProductDetails() {
 
   const pathImages = productDetails.images;
   const formattedPrice = productDetails.price.toLocaleString("de-DE");
-  const state = "nuevo";
+  const state = productDetails.status.toLowerCase();
 
   return (
     <div className={styles.productDetails_container}>

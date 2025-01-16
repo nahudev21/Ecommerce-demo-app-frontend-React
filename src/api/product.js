@@ -45,7 +45,9 @@ export const productMapped = (product, imgs) => {
     description: product.data.description,
     price: product.data.price,
     stock: product.data.inventory,
+    status: product.status,
     brand: product.data.brand,
+    category: product.category.name,
     images: imgs,
   };
 
@@ -58,7 +60,9 @@ export const listProductsMapped = (product, imgs) => {
     description: product.description,
     price: product.price,
     stock: product.inventory,
+    status: product.status,
     brand: product.brand,
+    category: product.category.name,
     images: imgs,
   };
 };

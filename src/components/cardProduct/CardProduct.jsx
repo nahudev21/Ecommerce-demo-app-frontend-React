@@ -1,49 +1,35 @@
 import styles from "./CardProduct.module.css"
-import { Link } from "react-router-dom";
-import { useProducts } from "../../context/ProductsContext";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function CardProduct({ product }) {
 
-  const { setProductDetails } = useProducts();
-
+  const navigate = useNavigate();
   const firstPath = product.images[0]
 
-  const handleClickProductDetails = () => {
-    setProductDetails(product);
-  };
+  const handleSeeProductDetails = () => {
+    navigate(`/product-details/${product.id}`);
+  }
 
   return (
-    <Link
-      to="/product-details"
-      className={styles.card_link}
-      onClick={handleClickProductDetails}
-    >
-      <div className={styles.card_container}>
-        <div className={styles.card_sectionsContainer}>
-          <div className={styles.card_imgContainer}>
-            <img className={styles.card_img} src={firstPath} />
+    <div className={styles.card_container} onClick={handleSeeProductDetails}>
+      <div className={styles.card_sectionsContainer}>
+        <span className={styles.section_informationState}>
+          Estado {product.status.toLowerCase()}
+        </span>
+        <div className={styles.card_imgContainer}>
+          <img className={styles.card_img} src={firstPath} />
+        </div>
+        <div className={styles.card_info}>
+          <div className={styles.card_strongContainer}>
+            <h3>{product.name}</h3>
           </div>
-          <hr />
-          <div className={styles.card_info}>
-            <span className={styles.section_informationState}>
-              Estado {"nuevo"}
-            </span>
-            <div>
-              <h3>{product.name}</h3>
-            </div>
-            <div className={styles.card_envioContainer}>
-              <span className={styles.card_envio}>
-                Envio gratis solo dentro de Tucumán
-              </span>
-            </div>
-            <div className={styles.card_priceContainer}>
-              <strong className={styles.card_price}>
-                ${product.price.toLocaleString("de-DE")}
-              </strong>
-            </div>
+          <div className={styles.card_strongContainer}>
+            <strong className={styles.card_price}>
+              ${product.price.toLocaleString("de-DE")}
+            </strong>
           </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }

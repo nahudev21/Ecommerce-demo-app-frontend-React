@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import { Routes, Route, Navigate } from "react-router";
-import { ProductsProvider } from "./context/ProductsContext";
 import LandingPage from "./pages/landingPage/LandingPage"
 import HomePage from "./pages/homePage/HomePage"
 import ProductDetails from "./pages/productDetails/ProductDetails"
@@ -15,30 +14,28 @@ export default function App() {
 
   return (
     <>
-      <ProductsProvider>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
 
-          <Route
-            path="/home"
-            element={isAuthenticate ? <HomePage /> : <Navigate to="/auth" />}
-          />
-          <Route
-            path="/product-details"
-            element={
-              isAuthenticate ? <ProductDetails /> : <Navigate to="/auth" />
-            }
-          />
-          <Route
-            path="/admin-page"
-            element={isAuthenticate ? <AdminPage /> : <Navigate to="/auth" />}
-          />
+        <Route
+          path="/home"
+          element={isAuthenticate ? <HomePage /> : <Navigate to="/auth" />}
+        />
+        <Route
+          path="/product-details/:id"
+          element={
+            isAuthenticate ? <ProductDetails /> : <Navigate to="/auth" />
+          }
+        />
+        <Route
+          path="/admin-page"
+          element={isAuthenticate ? <AdminPage /> : <Navigate to="/auth" />}
+        />
 
-          <Route path="/auth" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-        </Routes>
-      </ProductsProvider>
+        <Route path="/auth" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+      </Routes>
     </>
   );
 }

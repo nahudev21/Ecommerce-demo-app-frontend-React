@@ -59,6 +59,7 @@
 .section_right_containerImg {
     width: 500px;
     height: 400px;
+    margin-top: 15px;
     border-radius: 25px;
     position: relative;
     overflow: hidden;
@@ -75,7 +76,7 @@
     background: #4189e693;
     border-radius: 25px;
     width: 300px;
-    height: 220px;
+    height: auto;
     padding: 20px;
     text-align: start;
     position: absolute;
@@ -98,7 +99,14 @@
 }
 
 .advertisement li {
+    display: flex;
+    justify-content: start;
+    align-items: center;
     margin-top: 5px;
+}
+
+.advertisement li span {
+    margin-left: 5px;
 }
 
 .check_icon {
