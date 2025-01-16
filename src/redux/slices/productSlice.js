@@ -30,9 +30,9 @@ const productsSlice = createSlice({
         },
         filterByCategory: (state, action) => {
             const filteredProducts = state.allProducts.filter((product) => {
-                return product.toLowerCase().includes(action.payload);
+                return product.category.includes(action.payload);
             })
-            state.productsCopy = action.payload ? filteredProducts : state.allProducts;
+            state.productsCopy = action.payload === "all" ? state.allProducts : filteredProducts;
         }
     },
 })

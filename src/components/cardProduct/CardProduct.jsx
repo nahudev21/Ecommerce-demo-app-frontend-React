@@ -11,32 +11,25 @@ export default function CardProduct({ product }) {
   }
 
   return (
-    
-      <div className={styles.card_container} onClick={handleSeeProductDetails}>
-        <div className={styles.card_sectionsContainer}>
-          <div className={styles.card_imgContainer}>
-            <img className={styles.card_img} src={firstPath} />
+    <div className={styles.card_container} onClick={handleSeeProductDetails}>
+      <div className={styles.card_sectionsContainer}>
+        <span className={styles.section_informationState}>
+          Estado {product.status.toLowerCase()}
+        </span>
+        <div className={styles.card_imgContainer}>
+          <img className={styles.card_img} src={firstPath} />
+        </div>
+        <div className={styles.card_info}>
+          <div className={styles.card_strongContainer}>
+            <h3>{product.name}</h3>
           </div>
-          <hr />
-          <div className={styles.card_info}>
-            <span className={styles.section_informationState}>
-              Estado {product.status.toLowerCase()}
-            </span>
-            <div>
-              <h3>{product.name}</h3>
-            </div>
-            <div className={styles.card_envioContainer}>
-              <span className={styles.card_envio}>
-                Envio gratis solo dentro de Tucumán
-              </span>
-            </div>
-            <div className={styles.card_priceContainer}>
-              <strong className={styles.card_price}>
-                ${product.price.toLocaleString("de-DE")}
-              </strong>
-            </div>
+          <div className={styles.card_strongContainer}>
+            <strong className={styles.card_price}>
+              ${product.price.toLocaleString("de-DE")}
+            </strong>
           </div>
         </div>
       </div>
+    </div>
   );
 }
