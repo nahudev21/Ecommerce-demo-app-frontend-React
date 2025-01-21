@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/slices/authSlice";
 import { FaUser } from "react-icons/fa";
 import { CiShoppingCart } from "react-icons/ci";
+import { searchProducts } from "../../redux/slices/productSlice";
 
 
 export default function Navbar() {
@@ -20,6 +21,10 @@ export default function Navbar() {
     }
   }
 
+  const handleChangeSearch = (e) => {
+    dispatch(searchProducts(e.target.value));
+  }
+
   return (
     <nav className={styles.nav_container}>
       <div className={styles.nav_logo_container}>
@@ -33,6 +38,7 @@ export default function Navbar() {
           className={styles.nav_seeker_input}
           name="buscador"
           placeholder="Buscar..."
+          onChange={handleChangeSearch}
         />
         <button className={styles.nav_seeker_button}>
           <IoMdSearch className={styles.nav_seeker_button_icon} />

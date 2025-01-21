@@ -33,9 +33,22 @@ const productsSlice = createSlice({
                 return product.category.includes(action.payload);
             })
             state.productsCopy = action.payload === "all" ? state.allProducts : filteredProducts;
+        },
+        searchProducts: (state, action) => {
+            const searchedProducts = state.allProducts.filter((product) => {
+                return product.name.toLowerCase().includes(action.payload.toLowerCase());
+            })
+            state.productsCopy = searchedProducts ? searchedProducts : null;
         }
     },
 })
 
-export const { setAllProducts, updateProductsCopy, sortProducts, filterByStatus, filterByCategory } = productsSlice.actions;
+export const { 
+    setAllProducts,
+    updateProductsCopy,
+    sortProducts,
+    filterByStatus,
+    filterByCategory,
+    searchProducts 
+} = productsSlice.actions;
 export default productsSlice.reducer;
