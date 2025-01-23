@@ -10,7 +10,6 @@ export default function FilterProducts() {
 
    const allProducts = useSelector((state) => state.products.allProducts);
    const categories = Array.from(new Set(allProducts.map((product) => product.category)));
-   console.log(categories)
 
    const handleClick = (e) => {
      const index = e.target.getAttribute("data-index");
