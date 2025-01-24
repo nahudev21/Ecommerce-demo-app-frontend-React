@@ -61,11 +61,11 @@ export default function ProductDetails() {
             name="opciones"
             className={styles.section_information_amountOptions}
           >
-            <option value="opcion1">1 unidad</option>
-            <option value="opcion2">2 unidades</option>
-            <option value="opcion3">3 unidades</option>
-            <option value="opcion4">4 unidades</option>
-            <option value="opcion5">5 unidades</option>
+            <option value={1}>1 unidad</option>
+            <option value={2}>2 unidades</option>
+            <option value={2}>3 unidades</option>
+            <option value={4}>4 unidades</option>
+            <option value={5}>5 unidades</option>
           </select>
         </div>
         <div className={styles.section_information_containerButton}>
