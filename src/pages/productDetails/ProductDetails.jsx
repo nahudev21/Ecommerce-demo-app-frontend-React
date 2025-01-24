@@ -1,5 +1,6 @@
 import styles from "./ProductDetails.module.css"
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { addToCart } from "../../redux/slices/cartSlice";
 import { useParams } from "react-router-dom";
 import CarouselProductDetails from "../../components/carouselProductDetails/CarouselProductDetails";
 
@@ -8,6 +9,7 @@ export default function ProductDetails() {
   const products = useSelector((state) => state.products.allProducts);
   const { id } = useParams();
   const productDetails = products.find((product) => product.id === parseInt(id));
+  const dispatch = useDispatch();
 
   // Verifica si productDetails existe y si tiene las propiedades necesarias
   if (
@@ -21,6 +23,10 @@ export default function ProductDetails() {
   const pathImages = productDetails.images;
   const formattedPrice = productDetails.price.toLocaleString("de-DE");
   const state = productDetails.status.toLowerCase();
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(productDetails));
+  }
 
   return (
     <div className={styles.productDetails_container}>
@@ -66,7 +72,7 @@ export default function ProductDetails() {
           <button className={styles.section_information_buyNowButton}>
             Comprar ahora
           </button>
-          <button className={styles.section_information_addToCartButton}>
+          <button className={styles.section_information_addToCartButton} onClick={handleAddToCart}>
             Agregar al carrito
           </button>
         </div>

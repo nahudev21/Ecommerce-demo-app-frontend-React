@@ -13,6 +13,9 @@ export default function Navbar() {
   const dispatch = useDispatch();
   const { isAuthenticate } = useSelector((state) => state.auth);
 
+  const cart = useSelector((state) => state.cart);
+  const amountItems = cart.reduce((total, item) => total + item.quantity, 0);
+
   const handleLogout = () => {
     const confirm = window.confirm("¿Desea cerrar Sesión?");
     
@@ -45,21 +48,23 @@ export default function Navbar() {
         </button>
       </div>
       <div className={styles.nav_cart_container}>
-        <span>
-          <CiShoppingCart className={styles.nav_cart_icon} />
-        </span>
-        <span className={styles.nav_cart_amount}>{0}</span>
+        <Link to="/cart">
+          <span>
+            <CiShoppingCart className={styles.nav_cart_icon} />
+          </span>
+          <span className={styles.nav_cart_amount}>{amountItems}</span>
+        </Link>
       </div>
       <div className={styles.nav_profile_container}>
         {isAuthenticate ? (
           <div className={styles.user_container}>
-              <FaUser className={styles.nav_user_icon} />
-              <p>Nahuel de la torre</p>
-              <div className={styles.nav_user_dropdown}>
-                <button className={styles.nav_button} onClick={handleLogout}>
-                  Cerrar Sesión
-                </button>
-              </div>
+            <FaUser className={styles.nav_user_icon} />
+            <p>Nahuel de la torre</p>
+            <div className={styles.nav_user_dropdown}>
+              <button className={styles.nav_button} onClick={handleLogout}>
+                Cerrar Sesión
+              </button>
+            </div>
           </div>
         ) : (
           <div className={styles.button_session_container}>
