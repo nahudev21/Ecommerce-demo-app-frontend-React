@@ -7,6 +7,7 @@ import AdminPage from "./pages/adminPage/AdminPage"
 import Navbar from "./components/navbar/Navbar";
 import RegisterPage from "./pages/registerPage/RegisterPage";
 import LoginPage from "./pages/loginPage/LoginPage";
+import CartPage from "./pages/cartPage/CartPage";
 
 export default function App() {
 
@@ -27,6 +28,10 @@ export default function App() {
           element={
             isAuthenticate ? <ProductDetails /> : <Navigate to="/auth" />
           }
+        />
+        <Route
+          path="/cart"
+          element={isAuthenticate ? <CartPage /> : <Navigate to="/auth" />}
         />
         <Route
           path="/admin-page"

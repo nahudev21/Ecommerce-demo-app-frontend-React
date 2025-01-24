@@ -1,0 +1,117 @@
+.cart_page_container {
+    width: 100%;
+    height: 100vh;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.cart_container {
+    width: 900px;
+    height: 100%;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background: #f9f9f9;
+    text-align: center;
+}
+
+.cart_container_title {
+    color: #202020;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.cart_table {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+
+.cart_table th,
+.cart_container td {
+    padding: 10px;
+    color: #202020;
+    font-size: 14px;
+    border-top: 1px solid #eb611f;
+    border-bottom: 1px solid #eb611f;
+}
+
+.is_cart_empty {
+    width: 100%;
+    height: 360px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.cart_table_button_delete {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    font-size: 17px;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart_total_information {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+
+.cart_purchase_summary {
+    color: #202020;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.cart_total_price {
+    color: #202020;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.button_go_pay {
+    width: 140px;
+    margin-top: 10px;
+    margin-left: 10px;
+    background: #8790ef;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.button_go_pay:hover {
+    background: #5f65ac;
+    transform: scale(103%);
+    transition: 0.5s;
+}
+
+.button_continue_shopping {
+    width: 140px;
+    margin-top: 10px;
+    margin-right: 10px;
+    background: #4189e6b7;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.button_continue_shopping:hover {
+    background: #4189e6e3;
+    transform: scale(103%);
+    transition: 0.5s;
+}
+
