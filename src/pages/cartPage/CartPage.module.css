@@ -8,7 +8,7 @@
 
 .cart_container {
     width: 900px;
-    height: 100%;
+    height: auto;
     margin: auto;
     padding: 10px;
     border: 1px solid #ddd;
@@ -30,6 +30,7 @@
 
 .cart_table th,
 .cart_container td {
+    width: 80px;
     padding: 10px;
     color: #202020;
     font-size: 14px;
@@ -46,24 +47,68 @@
     margin-top: 10px;
 }
 
-.cart_table_button_delete {
+.cart_img_container {
+    width: 50px;
+    height: 50px;
+    margin: auto;
+}
+
+.cart_img {
+    width: 100%;
+    max-height: 100%;
+    /* Asegura que la imagen no sobrepase la altura del contenedor */
+    object-fit: contain
+}
+
+.cart_table_amount_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart_table_button_amount {
     width: 100%;
     height: 100%;
     background: transparent;
     font-size: 17px;
+    color: #202020;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart_table_button_amount:hover {
+   color: #eb611f;
+}
+
+.cart_table_button_amount:disabled {
+    color: #aaaaaa;
+}
+
+.cart_table_button_delete {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    font-size: 18px;
     color: red;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.cart_table_button_delete:hover {
+    font-size: 20px;
+}
+
 .cart_total_information {
     width: 100%;
     height: auto;
-    margin-top: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .cart_purchase_summary {
+    margin-top: 12px;
     color: #202020;
     font-size: 18px;
     font-weight: 600;
