@@ -7,10 +7,16 @@ import { decreaseQuantity, increaseQuantity, removeToCart } from "../../redux/sl
 import { Link } from "react-router-dom";
 import { IoIosRemove } from "react-icons/io";
 import { IoIosAdd } from "react-icons/io";
+import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
+initMercadoPago("APP_USR-6b7ff256-c28b-4495-8b6e-daeda9fe6c77");
 
 export default function CartPage() {
 
+  
+
   const [loading, setLoading] = useState(true);
+
+  const [ preferenceId, setPreferenceId ] = useState(null);
   
   const cart = useSelector((state) => state.cart);
 
@@ -25,6 +31,39 @@ export default function CartPage() {
 
     return () => clearTimeout(timer);
   }, [])
+
+  const cartPayment = {
+    title: "Iphone 16",
+    quantity: 1,
+    unitPrice: 16000,
+  };
+
+  const paymentRequest = async () => {
+
+    try {
+       const response = await fetch(
+         "http://localhost:9193/api/v1/payment/mercado-pago",
+         {
+           method: "POST",
+           headers: { "Content-type": "Application/json" },
+           body: JSON.stringify(cartPayment),
+         }
+       );
+       if (response.ok) {
+         const json = await response.text();
+         console.log(json);
+         return json;
+       }
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  const handlePayment = async () => {
+    const id = await paymentRequest();
+    console.log(id)
+    id && setPreferenceId(id);
+  }
     
   const handleRemoveToCart = (id) => {
     const confirm = window.confirm("¿Desea eliminar este producto del carrito?")
@@ -123,8 +162,16 @@ export default function CartPage() {
                 </button>
               </Link>
               <Link>
-                <button className={styles.button_go_pay}>Ir a pagar</button>
+                <button className={styles.button_go_pay} onClick={handlePayment}>Ir a pagar</button>
               </Link>
+              {
+                preferenceId && (
+                  <Wallet initialization={{
+                    preferenceId: preferenceId,
+                    redirectMode: "blank",
+                  }} />
+                )
+              }
             </div>
           </div>
         </>
