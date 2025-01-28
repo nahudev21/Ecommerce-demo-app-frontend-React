@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./CartPage.module.css";
 import Loader from "../../components/loader/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { MdDeleteForever } from "react-icons/md";
-import { decreaseQuantity, increaseQuantity, removeToCart } from "../../redux/slices/cartSlice";
+import { decreaseQuantity, increaseQuantity, removeToCart, clearCart } from "../../redux/slices/cartSlice";
 import { Link } from "react-router-dom";
 import { IoIosRemove } from "react-icons/io";
 import { IoIosAdd } from "react-icons/io";
 import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
 initMercadoPago("APP_USR-6b7ff256-c28b-4495-8b6e-daeda9fe6c77");
+import { paymentRequest } from "../../api/mercadoPagoCheckoutPro";
 
 export default function CartPage() {
-
-  
 
   const [loading, setLoading] = useState(true);
 
@@ -22,6 +22,8 @@ export default function CartPage() {
 
   const dispatch = useDispatch();
 
+  const navigate = useNavigate();
+
   const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
   useEffect(() => {
@@ -30,39 +32,18 @@ export default function CartPage() {
     }, 800);
 
     return () => clearTimeout(timer);
-  }, [])
-
-  const cartPayment = {
-    title: "Iphone 16",
-    quantity: 1,
-    unitPrice: 16000,
-  };
-
-  const paymentRequest = async () => {
-
-    try {
-       const response = await fetch(
-         "http://localhost:9193/api/v1/payment/mercado-pago",
-         {
-           method: "POST",
-           headers: { "Content-type": "Application/json" },
-           body: JSON.stringify(cartPayment),
-         }
-       );
-       if (response.ok) {
-         const json = await response.text();
-         console.log(json);
-         return json;
-       }
-    } catch (error) {
-      console.error(error)
-    }
-  }
+  }, [loading])
 
   const handlePayment = async () => {
-    const id = await paymentRequest();
+    const id = await paymentRequest(cart);
     console.log(id)
     id && setPreferenceId(id);
+  }
+
+  const handlePaymentSubmit = () => {
+    setLoading(true);
+    dispatch(clearCart());
+    navigate("/home");
   }
     
   const handleRemoveToCart = (id) => {
@@ -166,7 +147,7 @@ export default function CartPage() {
               </Link>
               {
                 preferenceId && (
-                  <Wallet initialization={{
+                  <Wallet onSubmit={handlePaymentSubmit} initialization={{
                     preferenceId: preferenceId,
                     redirectMode: "blank",
                   }} />
