@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { registerRequest } from "../api/auth"
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 export default function useRegisterPage(initialData, onValidate) {
  
   const [formData, setformData] = useState(initialData);
   const [ formErrors, setFormErrors ] = useState({});
+
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
       const { name, value } = event.target;
@@ -26,7 +30,8 @@ export default function useRegisterPage(initialData, onValidate) {
         if (userRegister) {
           console.log(userRegister);
           setformData({ firstName: "", lastName: "", email: "", password: "" });
-          alert("Registro exitoso!")
+          toast.success("Usuario registrado con éxito!")
+          navigate("/auth");
         }
       } else {
         setFormErrors(formError);

@@ -1,5 +1,7 @@
 import styles from "./RegisterPage.module.css"
 import useRegisterPage from "../../hooks/useRegisterPage";
+import { ToastContainer } from "react-toastify";
+
 
 export default function RegisterPage() {
 
@@ -69,6 +71,7 @@ export default function RegisterPage() {
 
   return (
     <div className={styles.register_container}>
+      <ToastContainer />
       <form className={styles.register_containerForm}>
         <div className={styles.register_containertitle}>
           <h1 className={styles.register_title}>Formulario de Registro</h1>

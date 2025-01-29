@@ -36,7 +36,6 @@ export default function useLoginPage(initialData, onValidate) {
         if (result.success) {
           dispach(loginSucces(result.data));
           setformData({ email: "", password: "" });
-          alert("Registro exitoso!")
           navigate("/home")
         } else {
           dispach(loginFailure(result.message));

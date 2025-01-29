@@ -140,6 +140,15 @@
     transition: 0.5s;
 }
 
+.button_go_pay:disabled {
+    background: #8790ef8c;
+    cursor: not-allowed;
+}
+
+.button_go_pay:disabled:hover {
+    transform: none;
+}
+
 .button_continue_shopping {
     width: 140px;
     margin-top: 10px;

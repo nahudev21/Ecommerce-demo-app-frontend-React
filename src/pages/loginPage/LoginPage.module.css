@@ -1,7 +1,14 @@
+.register_page_container {
+    width: 100%;
+    height: 575px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .register_container {
     width: 320px;
     height: auto;
-    margin: auto;
     margin-top: 30px;
     padding: 5px;
     text-align: center;
