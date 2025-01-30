@@ -1,8 +1,9 @@
 import styles from "./ProductDetails.module.css"
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart } from "../../redux/slices/cartSlice";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import CarouselProductDetails from "../../components/carouselProductDetails/CarouselProductDetails";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function ProductDetails() {
 
@@ -10,6 +11,7 @@ export default function ProductDetails() {
   const { id } = useParams();
   const productDetails = products.find((product) => product.id === parseInt(id));
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // Verifica si productDetails existe y si tiene las propiedades necesarias
   if (
@@ -26,10 +28,17 @@ export default function ProductDetails() {
 
   const handleAddToCart = () => {
     dispatch(addToCart(productDetails));
+    toast.success("Se agregó este producto al carrito")
   }
+
+  const handleBuyNow = () => {
+    dispatch(addToCart(productDetails));
+    navigate("/cart")
+  };
 
   return (
     <div className={styles.productDetails_container}>
+      <ToastContainer />
       <section className={styles.section_carousel}>
         <CarouselProductDetails pathImages={pathImages} />
       </section>
@@ -54,25 +63,17 @@ export default function ProductDetails() {
         <span
           className={styles.section_informationAmount}
         >{`Marca: ${productDetails.brand}`}</span>
-        <div className={styles.section_information_amountContainer}>
-          <span className={styles.section_informationAmount}>Cantidad:</span>
-          <select
-            id="opciones"
-            name="opciones"
-            className={styles.section_information_amountOptions}
-          >
-            <option value={1}>1 unidad</option>
-            <option value={2}>2 unidades</option>
-            <option value={2}>3 unidades</option>
-            <option value={4}>4 unidades</option>
-            <option value={5}>5 unidades</option>
-          </select>
-        </div>
         <div className={styles.section_information_containerButton}>
-          <button className={styles.section_information_buyNowButton}>
+          <button
+            className={styles.section_information_buyNowButton}
+            onClick={handleBuyNow}
+          >
             Comprar ahora
           </button>
-          <button className={styles.section_information_addToCartButton} onClick={handleAddToCart}>
+          <button
+            className={styles.section_information_addToCartButton}
+            onClick={handleAddToCart}
+          >
             Agregar al carrito
           </button>
         </div>

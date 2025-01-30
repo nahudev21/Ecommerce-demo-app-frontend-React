@@ -11,6 +11,7 @@ import { IoIosAdd } from "react-icons/io";
 import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
 initMercadoPago("APP_USR-6b7ff256-c28b-4495-8b6e-daeda9fe6c77");
 import { paymentRequest } from "../../api/mercadoPagoCheckoutPro";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function CartPage() {
 
@@ -50,6 +51,7 @@ export default function CartPage() {
     const confirm = window.confirm("¿Desea eliminar este producto del carrito?")
     if(confirm) {
         dispatch(removeToCart(id));
+        toast.success("Se eliminó el producto del carrito")
     }
   }
 
@@ -63,6 +65,7 @@ export default function CartPage() {
 
   return (
     <div className={styles.cart_page_container}>
+      <ToastContainer />
       {loading ? (
         <Loader />
       ) : (
@@ -143,7 +146,7 @@ export default function CartPage() {
                 </button>
               </Link>
               <Link>
-                <button className={styles.button_go_pay} onClick={handlePayment}>Ir a pagar</button>
+                <button className={styles.button_go_pay} disabled={cart.length === 0} onClick={handlePayment}>Ir a pagar</button>
               </Link>
               {
                 preferenceId && (
